@@ -37,3 +37,4 @@ F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\n
 F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\netcoreapp3.1\GuessingGame.genruntimeconfig.cache
 F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\netcoreapp3.1\GuessingGame.csproj.CopyComplete
 F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\netcoreapp3.1\Razor\Views\Home\GuessingGameResult.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\netcoreapp3.1\Razor\Views\Home\GuessingGameError.cshtml.g.cs

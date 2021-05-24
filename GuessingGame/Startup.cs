@@ -27,7 +27,7 @@ namespace GuessingGame
             services.AddMemoryCache();
             services.AddSession(options =>
             {
-                options.Cookie.Name = ".GuessingGame.session";
+                options.Cookie.Name = ".Gg-session";
                 options.IdleTimeout = TimeSpan.FromSeconds(100);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;

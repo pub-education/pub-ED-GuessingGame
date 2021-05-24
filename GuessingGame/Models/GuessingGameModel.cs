@@ -10,14 +10,34 @@ using Microsoft.AspNetCore.Http;
 
 namespace GuessingGame.Controllers
 {
-    public class GuessingGame
+    public class GameModel
     {
-        GuessingGame() { }
+        public GameModel() { }
 
-        public static void Reset()
+        /// <summary>
+        /// Returns the reply string to display for the player.
+        /// </summary>
+        /// <param name="guess">The number to compare to target.</param>
+        /// <param name="target">The target number.</param>
+        /// <returns>String outcome of comparison.</returns>
+        public string CompareData(int guess, int target, ref bool success)
         {
-            
-            
+            string ret = "";
+
+            if (guess == target)
+            {
+                ret = "Congratulations!";
+                success = true;
+            }
+            else if (guess > target)
+            {
+                ret = "Too high!";
+            }
+            else
+            {
+                ret = "Too low!";
+            }
+            return ret;
         }
     }
 }
