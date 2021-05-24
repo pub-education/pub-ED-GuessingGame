@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "- The Guessing Game -";
+
+}
+
+<div class="content-wrapper">
+    <div class="card-wrapper">
+        <h1 class="display-4">The Guessing Game</h1>
+        <p>Guess the secret number bewteen 1 and 100</p>
+        <div id="card-holder">
+            <div class="cardBg"></div>
+            <div class="card">
+                <div class="form-wrapper">
+                    <form action="/GuessingGame" method="post">
+                        <div>
+                            @if (ViewBag.showResult)
+                            {
+                                string tmpItems = (string)ViewBag.resultList;
+                                string[] items = tmpItems.Split(',');
+                                string[] tmps = new string[2];
+                                <ul>
+                                    @foreach (string item in items)
+                                    {
+                                        //tmps = item.Split(':');
+                                        <li>@item</li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <div>
+                                    <label>
+                                        Name:<br />
+                                        @if (!ViewBag.initialRun)
+                                        {
+                                            <input id="name" type="text" name="name" value="@ViewBag.name" disabled />
+                                        }
+                                        else
+                                        {
+                                            <input id="name" type="text" name="name" value="@ViewBag.name" />
+                                        }
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        No. Guesses:<br />
+                                        <input id="guessCount" name="counter" type="number" value="@ViewBag.counter" disabled />
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                        @if (!ViewBag.showResult)
+                        {
+                            <div>
+                                <label>
+                                    Guess the number:<br />
+                                    <input id="guessedNumber" type="number" name="guessedNumber" value="@ViewBag.guessNumber" />
+                                    @if (!ViewBag.initialRun)
+                                    {
+                                        <input id="response" type="text" name="response" value="@ViewBag.response" />
+                                    }
+                                </label>
+                            </div>
+
+                        }
+                        <div class="button-wrapper">
+                            @if (!ViewBag.showResult)
+                            {
+                                <div>
+                                    <button id="submitButton" type="submit">Enter</button>
+                                </div>
+                            }
+                            <div>
+                                <button onclick="javascript: buttonClick('newGame')" type="button">New Game</button>
+                            </div>
+                            <div>
+                                <button onclick="javascript: buttonClick('endGame')" type="button">End Game</button>
+                            </div>
+                        </div>
+
+                        <input id="callButton" type="text" name="callButton" value="" hidden />
+                    </form>
+
+                </div>
+                <div class="scoreBoard-wrapper">
+                    <h2>Top Scores</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>text</td>
+                                <td>number</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

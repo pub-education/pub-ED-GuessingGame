@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "The Guessing Game - Result";
+    string[] items = ViewBag.resultList.toString().Split(',');
+    string key, val;
+    string[] tmps = new string[2];
+}
+
+<div class="content-wrapper">
+    <div class="card-wrapper">
+        <h1 class="display-4">The Guessing Game Result</h1>
+        <div id="card-holder">
+            <div class="cardBg"></div>
+            <div class="card">
+                <div class="form-wrapper">
+                    <form action="/GuessingGame" method="post">
+                        <div>
+                            <ul>
+                                @foreach(string item in items)
+                                {
+                                    tmps = item.Split(':');
+                                    <li>item</li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="button-wrapper">
+                            <div>
+                                <button type="submit">New Game</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿footer{
+    height:60px;
+    padding-top: 0.1rem;
+}
+    footer > div {
+        text-align: center;
+        line-height: 1.2rem;
+        height: 100%;
+        color: lightyellow;
+        padding: 1rem;
+    }
+footer>div>a{
+    color:lightyellow;
+    text-decoration: none;
+    
+}
+    footer > div > a:hover {
+        color: navajowhite;
+        text-decoration: none;
+    }
