@@ -68,6 +68,7 @@ namespace GuessingGame.Controllers
                 {
                     ViewBag.message = "No number provided.";
                     HttpContext.Session.SetInt32("_counter", (int)ViewBag.counter);
+                    ViewBag.errorFatal = false;
                     return View("GuessingGameError");
                 }
                 else
@@ -133,6 +134,7 @@ namespace GuessingGame.Controllers
             if (postRequest)
             {
                 ViewBag.buttonName = HttpContext.Request.Form["callButton"];
+                ViewBag.guessList = HttpContext.Session.GetString("_guessList");
                 ViewBag.targetNumber = HttpContext.Session.GetInt32("_targetNumber").HasValue ? (int)HttpContext.Session.GetInt32("_targetNumber") : -1;
                 ViewBag.counter = HttpContext.Session.GetInt32("_counter").HasValue ? (int)HttpContext.Session.GetInt32("_counter") : -1;
                 tmp = HttpContext.Request.Form["guessedNumber"];
@@ -145,7 +147,7 @@ namespace GuessingGame.Controllers
             else
             {
                 ViewBag.counter = 0;
-                HttpContext.Session.SetString("_guessList", "");
+                //HttpContext.Session.SetString("_guessList", "");
             }
 
             HttpContext.Session.SetInt32("_counter", (int)ViewBag.counter + 1);

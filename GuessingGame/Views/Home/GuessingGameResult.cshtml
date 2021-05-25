@@ -1,6 +1,8 @@
 ﻿@{
-    ViewData["Title"] = "- The Guessing Game -";
-
+    ViewData["Title"] = "- The Guessing Game - Result -";
+    string tmpItems = (string)ViewBag.guessList;
+    string[] items = tmpItems.Split(',');
+    string[] tmps = { "-1", "-1" };
 }
 
 <div class="content-wrapper">
@@ -13,63 +15,30 @@
                 <div class="form-wrapper">
                     <form action="/GuessingGame" method="post">
                         <div>
-                            @if (ViewBag.showResult)
-                            {
-                                string tmpItems = (string)ViewBag.resultList;
-                                string[] items = tmpItems.Split(',');
-                                string[] tmps = new string[2];
-                                <ul>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Guessed Number</th>
+                                        <th>Magic Reply</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     @foreach (string item in items)
                                     {
-                                        //tmps = item.Split(':');
-                                        <li>@item</li>
+                                        tmps = item.Split(':');
+                                        <tr>
+                                            <td>@tmps[0]</td>
+                                            <td>@tmps[1]</td>
+                                        </tr>
                                     }
-                                </ul>
-                            }
-                            else
-                            {
-                                <div>
-                                    <label>
-                                        Name:<br />
-                                        @if (!ViewBag.initialRun)
-                                        {
-                                            <input id="name" type="text" name="name" value="@ViewBag.name" disabled />
-                                        }
-                                        else
-                                        {
-                                            <input id="name" type="text" name="name" value="@ViewBag.name" />
-                                        }
-                                    </label>
-                                </div>
-                                <div>
-                                    <label>
-                                        No. Guesses:<br />
-                                        <input id="guessCount" name="counter" type="number" value="@ViewBag.counter" disabled />
-                                    </label>
-                                </div>
-                            }
-                        </div>
-                        @if (!ViewBag.showResult)
-                        {
-                            <div>
-                                <label>
-                                    Guess the number:<br />
-                                    <input id="guessedNumber" type="number" name="guessedNumber" value="@ViewBag.guessNumber" />
-                                    @if (!ViewBag.initialRun)
-                                    {
-                                        <input id="response" type="text" name="response" value="@ViewBag.response" />
-                                    }
-                                </label>
-                            </div>
+                                </tbody>
+                            </table>
 
-                        }
+                        </div>
+
                         <div class="button-wrapper">
-                            @if (!ViewBag.showResult)
-                            {
-                                <div>
-                                    <button id="submitButton" type="submit">Enter</button>
-                                </div>
-                            }
+
                             <div>
                                 <button onclick="javascript: buttonClick('newGame')" type="button">New Game</button>
                             </div>
@@ -78,7 +47,7 @@
                             </div>
                         </div>
 
-                        <input id="callButton" type="text" name="callButton" value="" hidden />
+                        <input id="callButton" type="text" name="callButton" value="submit" hidden />
                     </form>
 
                 </div>

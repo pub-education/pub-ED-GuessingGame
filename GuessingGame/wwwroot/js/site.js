@@ -4,10 +4,9 @@
 // Write your JavaScript code.
 
 const buttonClick = code => {
-    alert(code);
+    //alert(code);
     document.getElementById("callButton").value = code;
     if (code == "endGame") {
-        alert("end");
         Window.close();
     } else {
         document.getElementById("submitButton").click();
