@@ -2,3 +2,5 @@
 @import "site.css";
 @import "footer.css";
 @import "guessingGamePage.css";
+@import "guessingGameResultPage.css";
+@import "guessingGameErrorPage.css";

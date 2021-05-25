@@ -62,6 +62,8 @@ namespace GuessingGame.Controllers
             bool success = false;
             string tmp = "";
             DataManager(true);
+
+            // error page return ViewBagbuttonName="errorReturn"
             if (ViewBag.buttonName == "submit")
             {
                 if ((int)ViewBag.guess < 0)
