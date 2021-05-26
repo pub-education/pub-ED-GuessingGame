@@ -14,7 +14,6 @@ F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\bin\Debug\n
 F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\bin\Debug\netcoreapp3.1\GuessingGame.pdb
 F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\bin\Debug\netcoreapp3.1\GuessingGame.Views.dll
 F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\bin\Debug\netcoreapp3.1\GuessingGame.Views.pdb
-F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\netcoreapp3.1\GuessingGame.csprojAssemblyReference.cache
 F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\netcoreapp3.1\staticwebassets\GuessingGame.StaticWebAssets.Manifest.cache
 F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\netcoreapp3.1\staticwebassets\GuessingGame.StaticWebAssets.xml
 F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\netcoreapp3.1\scopedcss\bundle\GuessingGame.styles.css
@@ -36,3 +35,8 @@ F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\n
 F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\netcoreapp3.1\GuessingGame.csproj.CopyComplete
 F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\netcoreapp3.1\Razor\Views\Home\GuessingGameResult.cshtml.g.cs
 F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\netcoreapp3.1\Razor\Views\Home\GuessingGameError.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+F:\Education\Lexicon\Programmering .NET\03 Backend\Code\GuessingGame\obj\Debug\netcoreapp3.1\GuessingGame.csproj.AssemblyReference.cache

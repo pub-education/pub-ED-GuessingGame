@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 
 
@@ -18,6 +19,8 @@ namespace GuessingGame.Controllers
     public class HomeController : Controller
     {
         private GameModel _gameModel;
+        List<string> listname = new List<string>();
+
         public HomeController()
         {
             this._gameModel = new GameModel();
@@ -49,6 +52,10 @@ namespace GuessingGame.Controllers
             SetTargetNumber();
 
             return View();
+
+            /*ViewBag.guessList = "34:Too high!,33:Too high!,32:Too high!,55:Too high!";
+
+            return View("GuessingGameResult");*/
         }
 
         /// <summary>
@@ -62,13 +69,15 @@ namespace GuessingGame.Controllers
             bool success = false;
             string tmp = "";
             DataManager(true);
+            string defaultName = "John Doe";
 
             // error page return ViewBagbuttonName="errorReturn"
             if (ViewBag.buttonName == "submit")
             {
                 if ((int)ViewBag.guess < 0)
                 {
-                    ViewBag.message = "No number provided.";
+                    ViewBag.errorMessage = "No number provided.";
+                    ViewBag.errorHead = "Error Page";
                     HttpContext.Session.SetInt32("_counter", (int)ViewBag.counter);
                     ViewBag.errorFatal = false;
                     return View("GuessingGameError");
@@ -88,6 +97,16 @@ namespace GuessingGame.Controllers
                     HttpContext.Session.SetString("_guessList", tmp);
                     if (success)
                     {
+                        string newEntry, result;
+                        int points = this._gameModel.CalculatePoints(ViewBag.counter, ViewBag.targetNumber);
+                        
+                        newEntry = ViewBag.name == "" ? defaultName + ":" + points.ToString() : ViewBag.name + ":" + points.ToString();
+
+                        Response.Cookies.Delete("topTen");
+                        result = this._gameModel.AddScoreToTopTen(JsonConvert.SerializeObject(ViewBag.topTen), newEntry);
+                        Response.Cookies.Append("topTen", result);
+                        ViewBag.topTen = JsonConvert.DeserializeObject(result);
+
                         return View("GuessingGameResult");
                     }
                     else
@@ -129,34 +148,58 @@ namespace GuessingGame.Controllers
         /// </param>
         private void DataManager(bool postRequest)
         {
-            string tmp;
-            ViewBag.name = Request.Cookies["playerName"] != null ? (string)Request.Cookies["playerName"] : "";
-            ViewBag.topTen = Request.Cookies["topTen"] != null ? (string)Request.Cookies["topTen"] : "";
+            string tmp = "";
+            
+            tmp = Request.Cookies["topTen"] != null ? (string)Request.Cookies["topTen"] : ":";
+            ViewBag.topTen = JsonConvert.DeserializeObject(tmp);
 
             if (postRequest)
             {
+                if(HttpContext.Session.GetString("_name").Length > 0)
+                {
+                    ViewBag.name = (string)HttpContext.Session.GetString("_name");
+                }
+                else
+                {
+                    ViewBag.name =HttpContext.Request.Form["name"];
+                }
                 ViewBag.buttonName = HttpContext.Request.Form["callButton"];
                 ViewBag.guessList = HttpContext.Session.GetString("_guessList");
                 ViewBag.targetNumber = HttpContext.Session.GetInt32("_targetNumber").HasValue ? (int)HttpContext.Session.GetInt32("_targetNumber") : -1;
                 ViewBag.counter = HttpContext.Session.GetInt32("_counter").HasValue ? (int)HttpContext.Session.GetInt32("_counter") : -1;
                 tmp = HttpContext.Request.Form["guessedNumber"];
-                    ViewBag.guess = tmp != "" ? Convert.ToInt32(tmp) : -1;
-                if (ViewBag.name == "")
-                {
-                    ViewBag.name = HttpContext.Request.Form["name"];
-                }
+                ViewBag.guess = tmp != "" ? Convert.ToInt32(tmp) : -1;
             }
             else
             {
+                if (Request.Cookies["playerName"] == null)
+                {
+                    Response.Cookies.Append("playerName", "");
+                    ViewBag.name = "";
+                }
+                else
+                {
+                    ViewBag.name = (string)Request.Cookies["playerName"];
+                }
                 ViewBag.counter = 0;
                 //HttpContext.Session.SetString("_guessList", "");
             }
-
-            HttpContext.Session.SetInt32("_counter", (int)ViewBag.counter + 1);
+            try
+            {
+                HttpContext.Session.SetInt32("_counter", (int)ViewBag.counter + 1);
+                HttpContext.Session.SetString("_name", (string)ViewBag.name);
+            }
+            catch(Exception ex)
+            {
+                ViewBag.error = ex.Message;
+            }
         }
 
-        private void GameGuessList()
+        private IActionResult TestResultPage()
         {
+            ViewBag.guessList = "34:Too high!,33:Too high!,32:Too high!,55:Too high!";
+
+            return View("GuessingGameResult");
 
         }
 

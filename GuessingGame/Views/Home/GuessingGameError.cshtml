@@ -1,9 +1,5 @@
-﻿
-
-
-@{
+﻿@{
     ViewData["Title"] = "- Error Page -";
-
 }
 
 <div class="content-wrapper">
@@ -11,17 +7,20 @@
         <h1 class="display-4">The Guessing Game</h1>
         <p>Guess the secret number bewteen 1 and 100</p>
         <div id="card-holder">
-            <div class="cardBg"></div>
-            <div class="card">
-                <div class="errorMessage">
-
-                </div>
-                <input id="callButton" type="text" name="callButton" value="errorReturn" hidden />
-                <div class="button-wrapper">
-                    <div>
-                        <button id="submitButton" type="submit">Continue</button>
+            <div class="errorCardBg"></div>
+            <div class="errorCard">
+                <form action="/GuessingGame" method="post">
+                    <div class="errorMessage">
+                        <h1>@ViewBag.errorHead</h1>
+                        <p>@ViewBag.errorMessage</p>
                     </div>
-                </div>
+                    <input id="callButton" type="text" name="callButton" value="errorReturn" hidden />
+                    <div class="button-wrapper">
+                        <div>
+                            <button id="submitButton" onclick="javascript: buttonClick('submit')" type="submit">Continue</button>
+                        </div>
+                    </div>
+                </form>
 
             </div>
         </div>

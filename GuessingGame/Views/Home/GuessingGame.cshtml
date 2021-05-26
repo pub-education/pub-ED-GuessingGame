@@ -1,5 +1,8 @@
-﻿@{
+﻿@{ 
     ViewData["Title"] = "- The Guessing Game -";
+    /*string tmpItems = (string)ViewBag.topTen;
+    string[] items = tmpItems.Split(',');*/
+    string[] tmps = { "", "" };
 
 }
 
@@ -22,7 +25,7 @@
                                     }
                                     else
                                     {
-                                        <input id="name" type="text" name="name" value="@ViewBag.name" />
+                                        <input type="text"  name="name" focus/>
                                     }
                                 </label>
                             </div>
@@ -37,7 +40,7 @@
                             <label>
                                 Guess the number:<br />
                                 <input id="guessedNumber" type="number" name="guessedNumber" value="@ViewBag.guessNumber" />
-                                @if (ViewBag.message != "")
+                                @if (!(ViewBag.message == "" || ViewBag.message == null))
                                 {
                                     <input id="response" type="text" name="response" value="@ViewBag.message" />
                                 }
@@ -62,7 +65,7 @@
                 </div>
                 <div class="scoreBoard-wrapper">
                     <h2>Top Scores</h2>
-                    <table>
+                    <table class="topTen-table">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -70,10 +73,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach(string item in ViewBag.topTen){
+                                tmps = item.Split(':');
                             <tr>
-                                <td>text</td>
-                                <td>number</td>
+                                <td>@tmps[0]</td>
+                                <td>@tmps[1]</td>
                             </tr>
+                            }
                         </tbody>
                     </table>
                 </div>

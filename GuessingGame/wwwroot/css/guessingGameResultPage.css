@@ -4,12 +4,28 @@
     classes cardBg and card has been substituted for resultCardBg and resultCard respectively.
 */
 
-
-.resultTable{
-    border-collapse: collapse;
-    apdding-left:1rem;
-    padding-right:1rem;
+.resultTable-wrapper {
+    padding-left: 3rem;
 }
+
+.resultTable {
+    border-collapse: separate;
+    border-spacing: 1.5rem 0px;
+}
+
+.resultTable td{
+    text-align:center;
+}
+
+.right-column {
+    margin-left: 1rem;
+}
+
+.resultCard .button-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 
 .resultCard {
     display: flex;
@@ -29,12 +45,12 @@
 .resultCardBg {
     position: absolute;
     top: 10.2rem;
+    left: 18rem;
     z-index: -100;
-    width: 57.6%;
-    height: 18.7rem;
+    width: 48%;
+    height: 23rem;
     background-color: lightsalmon;
     opacity: 60%;
-    padding-left: 2rem;
     border-radius: 12px;
     box-shadow: 4px 4px 4px 4px wheat;
 }

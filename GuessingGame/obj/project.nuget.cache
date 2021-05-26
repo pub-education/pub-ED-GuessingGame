@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "vVOlTRL3rUCTkfwGakVkPhjUb8uRPNHWHRRKiOZW832oCZ4zAKRwk2Z9XYhApsW8MkOUe+e2mLteRCLE1P1I0A==",
+  "dgSpecHash": "lCkJzM5po9SR16L7CR3vZeZQeiDf+FCdcSszixoe99GdDEEq9m4vRwMRJdFn3fJCfFUUM1Z9rlLL1qS6lg6mhw==",
   "success": true,
   "projectFilePath": "F:\\Education\\Lexicon\\Programmering .NET\\03 Backend\\Code\\GuessingGame\\GuessingGame.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\chris\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.15\\microsoft.aspnetcore.jsonpatch.3.1.15.nupkg.sha512",
+    "C:\\Users\\chris\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.15\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.15.nupkg.sha512",
+    "C:\\Users\\chris\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\chris\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\chris\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
