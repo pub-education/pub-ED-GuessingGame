@@ -1,0 +1,11 @@
+﻿
+
+<ul>
+    @{ Persons data = Model.ListData;}
+    @for (int i = 0; i < data.data.Count; i++)
+            {
+                <li>
+                    <div>@data.data[i].Name | @data.data[i].Phone | @data.data[i].City | <a asp-controller="People" asp-action="Delete" asp-route-id="@i.ToString()">Delete</a> </div>
+                </li>
+            }
+</ul>
